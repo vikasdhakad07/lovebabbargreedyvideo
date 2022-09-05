@@ -1,0 +1,35 @@
+Method:Expected Time Complexity: O(1)
+Expected Auxiliary Space: O(1)
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int s=sc.nextInt();
+	    int n=sc.nextInt();
+	    int m=sc.nextInt();
+		System.out.println(minimumDays(s,n,m));
+	}
+	
+	 static int minimumDays(int S, int N, int M){
+        // code here
+        int sunday=S/7;
+        
+        int totalDays=S*M;
+        int buyingDay=S-sunday;
+        int ans=0;
+        if(totalDays%N==0){
+            ans=totalDays/N;
+        }
+        else{
+            ans=totalDays/N +1;
+        }
+        
+        if(ans<=buyingDay){
+            return ans;
+        }else{
+            return -1;
+        }
+    }
+}
